@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Elisa Deng — cognitive science at UC Berkeley, art and design, and a lot of food.">
+<title>Elisa Deng</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Work+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&family=Noto+Serif+SC:wght@600;900&display=swap">
+<style>
+/* Layout: the site is Elisa's menu. Courses run top to bottom — starter (about), today's specials (now), mains (experience), favorites (food), the bill (contact). Celadon-plate ground, soy ink, chili and yolk accents. Single deliberate light look. */
+:root {
+  --plate: #E6ECDF;
+  --paper: #FAF8F1;
+  --soy: #2B1B12;
+  --soy-soft: #4A3A30;
+  --muted: #6E6255;
+  --rule: #B9C2AE;
+  --chili: #C2311D;
+  --yolk: #F0B236;
+  --scallion: #4E7A39;
+  --display: 'Young Serif', Georgia, 'Times New Roman', serif;
+  --body: 'Work Sans', system-ui, -apple-system, sans-serif;
+  --mono: 'DM Mono', ui-monospace, Menlo, monospace;
+  --han: 'Noto Serif SC', 'Songti SC', 'SimSun', serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--plate); color: var(--soy); font-family: var(--body); font-size: 17px; line-height: 1.6; overflow-x: hidden; }
+a { color: var(--chili); }
+a:focus-visible { outline: 3px solid var(--yolk); outline-offset: 3px; }
+h1, h2, h3 { text-wrap: balance; }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: 24px; }
+@media (max-width: 480px) { .wrap { padding-inline: 16px; } }
+.han { font-family: var(--han); }
+
+/* Header */
+.site-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; padding-block: 24px; }
+.logo { display: inline-flex; align-items: center; gap: 10px; font-family: var(--display); font-size: 26px; color: var(--soy); text-decoration: none; }
+.logo .seal { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background: var(--chili); color: var(--paper); border-radius: 6px; font-family: var(--han); font-weight: 900; font-size: 22px; transform: rotate(-4deg); }
+.nav { display: flex; flex-wrap: wrap; gap: 6px; font-family: var(--mono); font-size: 14px; }
+.nav a { color: var(--soy); text-decoration: none; padding: 10px 14px; border-radius: 999px; border: 1.5px solid var(--soy); transition: background .15s, color .15s; }
+.nav a:hover { background: var(--soy); color: var(--paper); }
+.nav a.order { background: var(--chili); border-color: var(--chili); color: var(--paper); }
+
+/* Hero */
+.hero { display: flex; flex-wrap: wrap; align-items: center; gap: 48px 64px; padding-block: 56px 96px; }
+.hero-text { flex: 999 1 500px; min-width: 0; }
+.ticket { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 28px; padding: 8px 16px; background: var(--paper); border: 1.5px dashed var(--soy); border-radius: 4px; font-family: var(--mono); font-size: 14px; transform: rotate(-2deg); }
+.ticket b { color: var(--chili); font-weight: 500; }
+.hero h1 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(56px, 9.5vw, 136px); line-height: .95; letter-spacing: -0.02em; }
+.hero h1 .name { color: var(--chili); position: relative; display: inline-block; }
+.hero h1 .name svg { position: absolute; right: -54px; top: -18px; width: 64px; height: 64px; }
+.lede { margin: 32px 0 0; max-width: 560px; font-size: clamp(19px, 2vw, 22px); line-height: 1.5; color: var(--soy-soft); }
+.lede em { font-style: normal; background: linear-gradient(transparent 58%, var(--yolk) 58%); padding-inline: 2px; }
+.lede .eat { color: var(--chili); font-weight: 600; }
+
+.plate-wrap { position: relative; flex: 1 1 300px; max-width: 400px; margin: 0 auto; }
+.plate { position: relative; width: 100%; max-width: 100%; aspect-ratio: 1; border-radius: 50%; background: var(--paper); border: 2px solid var(--soy); box-shadow: 0 0 0 14px var(--paper), 0 0 0 16px var(--soy), 14px 18px 0 16px rgba(43,27,18,.12); display: flex; align-items: center; justify-content: center; }
+.plate::before { content: ""; position: absolute; inset: 9%; border-radius: 50%; border: 1.5px dashed var(--scallion); }
+.plate .photo { position: relative; width: 74%; aspect-ratio: 1; border-radius: 50%; background: #DCD3C2; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 13px; color: var(--muted); overflow: hidden; }
+.chopsticks { position: absolute; right: -36px; top: -10px; width: 90px; height: 330px; transform: rotate(18deg); pointer-events: none; }
+.spin { position: absolute; left: -30px; bottom: -26px; width: 128px; height: 128px; }
+.spin .ring-text { transform-origin: 60px 60px; animation: turn 26s linear infinite; }
+@keyframes turn { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin .ring-text { animation: none; } }
+@media (max-width: 480px) { .chopsticks { right: -6px; width: 70px; } .spin { left: -4px; width: 104px; height: 104px; } .hero h1 .name svg { display: none; } }
+
+/* Course headers */
+.course { padding-block: 88px; border-top: 2px solid var(--soy); position: relative; }
+.course-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 18px; margin-bottom: 40px; }
+.course-head .zh { font-family: var(--han); font-weight: 900; font-size: clamp(40px, 6vw, 64px); line-height: 1; color: var(--chili); }
+.course-head h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(28px, 3.4vw, 40px); }
+.course-head .note { font-family: var(--mono); font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; }
+
+/* About */
+.about { display: flex; flex-direction: column; gap: 24px; max-width: 900px; }
+.about .big { margin: 0; font-family: var(--display); font-size: clamp(26px, 3.2vw, 40px); line-height: 1.25; }
+.about .big em { font-style: normal; color: var(--chili); }
+.about .small { margin: 0; font-size: 18px; color: var(--soy-soft); max-width: 640px; }
+.about .small a { font-weight: 600; }
+
+/* Specials: order tickets */
+.specials { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+.slip { position: relative; background: var(--paper); border: 1.5px solid var(--soy); padding: 28px 26px 30px; transition: transform .2s; }
+.slip:nth-child(1) { transform: rotate(-1.2deg); }
+.slip:nth-child(2) { transform: rotate(1.2deg); }
+.slip:hover { transform: rotate(0) translateY(-3px); }
+@media (prefers-reduced-motion: reduce) { .slip { transition: none; } }
+.slip::after { content: ""; position: absolute; left: -1.5px; right: -1.5px; bottom: -10px; height: 10px; background: radial-gradient(circle at 6px 0, transparent 6px, var(--paper) 6.5px) 0 0 / 12px 10px repeat-x; }
+.slip .top { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 12px; margin-bottom: 14px; border-bottom: 1.5px dashed var(--rule); font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.slip .top b { color: var(--chili); font-weight: 500; }
+.slip h3 { margin: 0 0 8px; font-family: var(--display); font-weight: 400; font-size: 28px; line-height: 1.15; }
+.slip p { margin: 0; font-size: 16px; color: var(--soy-soft); }
+
+/* Mains: menu lines */
+.mains { display: flex; flex-direction: column; gap: 36px; max-width: 940px; }
+.dish-line { display: flex; align-items: baseline; gap: 12px; }
+.dish-line h3 { margin: 0; font-family: var(--display); font-weight: 400; font-size: clamp(22px, 2.6vw, 28px); line-height: 1.2; min-width: 0; }
+.dish-line .dots { flex: 1 1 40px; border-bottom: 2px dotted var(--soy); transform: translateY(-6px); min-width: 24px; }
+.dish-line .price { font-family: var(--mono); font-size: 14px; color: var(--chili); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.main .where { margin: 2px 0 8px; font-family: var(--mono); font-size: 14px; color: var(--scallion); }
+.main p.desc { margin: 0; max-width: 720px; font-size: 16px; color: var(--soy-soft); }
+@media (max-width: 480px) { .dish-line { flex-wrap: wrap; } .dish-line .dots { display: none; } .dish-line .price { width: 100%; } }
+
+/* Favorites */
+.fav-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+.fav-card { background: var(--paper); border: 2px solid var(--soy); border-radius: 20px; padding: 30px 28px; min-width: 0; }
+.fav-card.home { box-shadow: 8px 8px 0 var(--chili); }
+.fav-card.abroad { box-shadow: 8px 8px 0 var(--scallion); }
+.fav-card h3 { display: flex; align-items: center; gap: 12px; margin: 0 0 18px; font-family: var(--display); font-weight: 400; font-size: 26px; }
+.fav-card h3 svg { flex: 0 0 auto; }
+.fav-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.fav-list li { display: flex; flex-direction: column; gap: 2px; padding-block: 14px; border-top: 1.5px dashed var(--rule); }
+.fav-list li:first-child { border-top: 0; padding-top: 0; }
+.fav-list .dish { font-family: var(--display); font-size: 22px; line-height: 1.25; }
+.fav-list .dish .han { font-weight: 900; font-size: 24px; margin-right: 8px; }
+.fav-list .gloss { font-size: 15px; color: var(--muted); }
+.ask { margin: 40px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; font-family: var(--display); font-size: clamp(22px, 2.6vw, 30px); }
+.ask .bubble { background: var(--yolk); border: 2px solid var(--soy); border-radius: 999px; padding: 6px 18px; font-family: var(--mono); font-size: 14px; }
+
+/* The bill */
+.bill { background: var(--soy); color: var(--paper); position: relative; overflow: hidden; }
+.bill .wrap { position: relative; padding-block: 104px 56px; display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start; }
+.bill .left { flex: 999 1 460px; min-width: 0; }
+.bill .zh { font-family: var(--han); font-weight: 900; font-size: 56px; color: var(--yolk); line-height: 1; margin: 0 0 16px; }
+.bill h2 { margin: 0 0 32px; font-family: var(--display); font-weight: 400; font-size: clamp(38px, 5.4vw, 72px); line-height: 1.05; }
+.bill h2 em { font-style: normal; color: var(--yolk); }
+.links { display: flex; flex-wrap: wrap; gap: 12px; }
+.pill { display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border-radius: 999px; border: 2px solid var(--paper); color: var(--paper); text-decoration: none; font-weight: 500; transition: background .15s, color .15s; }
+.pill:hover { background: var(--paper); color: var(--soy); }
+.pill.main { background: var(--chili); border-color: var(--chili); }
+.pill.main:hover { background: var(--yolk); border-color: var(--yolk); color: var(--soy); }
+.receipt { flex: 1 1 280px; max-width: 340px; background: var(--paper); color: var(--soy); padding: 26px 24px; font-family: var(--mono); font-size: 14px; transform: rotate(2deg); position: relative; }
+.receipt::after { content: ""; position: absolute; left: 0; right: 0; bottom: -10px; height: 10px; background: linear-gradient(-45deg, transparent 7px, var(--paper) 0) 0 0 / 14px 10px repeat-x, linear-gradient(45deg, transparent 7px, var(--paper) 0) 0 0 / 14px 10px repeat-x; }
+.receipt .rhead { text-align: center; border-bottom: 1.5px dashed var(--rule); padding-bottom: 12px; margin-bottom: 12px; }
+.receipt .row { display: flex; justify-content: space-between; gap: 12px; padding-block: 4px; }
+.receipt .total { border-top: 1.5px dashed var(--rule); margin-top: 10px; padding-top: 10px; font-weight: 500; color: var(--chili); }
+.receipt .thanks { margin: 14px 0 0; text-align: center; color: var(--muted); }
+.fine { margin: 0; padding-block: 0 40px; font-family: var(--mono); font-size: 13px; color: #B9AEA2; }
+</style>
+
+</head>
+<body>
+
+<div class="wrap">
+  <header class="site-head">
+    <a class="logo" href="#top"><span class="seal" aria-hidden="true">吃</span>elisa deng</a>
+    <nav class="nav" aria-label="Menu">
+      <a href="#about">starter</a>
+      <a href="#now">specials</a>
+      <a href="#experience">mains</a>
+      <a href="#favorites">favorites</a>
+      <a class="order" href="#contact">say hi</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <div class="hero-text">
+      <p class="ticket"><b>table for one</b> · feel free to reach out!</p>
+      <h1>Hi, I'm <span class="name">Elisa.<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 22 C 12 30, 14 48, 30 56 C 44 62, 54 54, 50 44 C 46 34, 36 30, 30 24 C 26 20, 24 18, 20 22 Z" fill="#C2311D" stroke="#2B1B12" stroke-width="2"/><path d="M21 21 C 18 14, 22 8, 28 7" fill="none" stroke="#4E7A39" stroke-width="4" stroke-linecap="round"/></svg></span></h1>
+      <p class="lede">I study how humans and technology meet — and my work runs through <em>art &amp; design</em>, to building and growing things. Mostly, though, I <span class="eat">eat</span>.</p>
+    </div>
+    <div class="plate-wrap">
+      <div class="plate"><div class="photo">[YOUR PHOTO]</div></div>
+      <svg class="chopsticks" viewBox="0 0 90 330" aria-hidden="true"><rect x="22" y="0" width="10" height="320" rx="4" fill="#2B1B12"/><rect x="50" y="6" width="10" height="320" rx="4" fill="#2B1B12"/><rect x="22" y="0" width="10" height="70" rx="4" fill="#C2311D"/><rect x="50" y="6" width="10" height="70" rx="4" fill="#C2311D"/></svg>
+      <svg class="spin" viewBox="0 0 120 120" role="img" aria-label="Art, design, build, grow, eat">
+        <defs><path id="ring" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs>
+        <circle cx="60" cy="60" r="58" fill="#F0B236" stroke="#2B1B12" stroke-width="2"/>
+        <g class="ring-text"><text font-family="DM Mono, monospace" font-size="11" letter-spacing="1.6" fill="#2B1B12"><textPath href="#ring">ART · DESIGN · BUILD · GROW · EAT ·</textPath></text></g>
+        <circle cx="60" cy="60" r="16" fill="#FAF8F1" stroke="#2B1B12" stroke-width="2"/><circle cx="60" cy="60" r="8" fill="#F0B236"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="course" id="about">
+    <div class="course-head"><span class="zh" aria-hidden="true">前菜</span><h2>Starter</h2><span class="note">about me</span></div>
+    <div class="about">
+      <p class="big">I'm a first-year at UC Berkeley studying Cognitive Science. I want to understand how people <em>think, learn and decide</em> — and what that means for how we build AI.</p>
+      <p class="small">Outside of work, I love volleyball, food, fashion styling and thrifting. Connect with me by <a href="#contact">giving me your Bay Area food recs</a>!</p>
+    </div>
+  </section>
+
+  <section class="course" id="now">
+    <div class="course-head"><span class="zh" aria-hidden="true">今日特供</span><h2>Today's specials</h2><span class="note">what I'm up to now</span></div>
+    <div class="specials">
+      <div class="slip">
+        <div class="top"><span>order no. 01</span><b>serving</b></div>
+        <h3>ASUC Office of the President</h3>
+        <p>Academic &amp; Professional Opportunities Associate in UC Berkeley's student government, which represents 45,000+ students.</p>
+      </div>
+      <div class="slip">
+        <div class="top"><span>order no. 02</span><b>learning</b></div>
+        <h3>Printmaking Artist</h3>
+        <p>[One line about it.]</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="course" id="experience">
+    <div class="course-head"><span class="zh" aria-hidden="true">主菜</span><h2>Mains</h2><span class="note">experience</span></div>
+    <div class="mains">
+      <article class="main">
+        <div class="dish-line"><h3>Growth Marketing Intern</h3><span class="dots" aria-hidden="true"></span><span class="price">2025</span></div>
+        <p class="where">2WA @ Solana</p>
+        <p class="desc">Founding member of the official X account for a real-world-asset startup, growing it from 0 to 20K followers in four months. Used AI tools to brainstorm and produce daily content, and wrote a competitive research report.</p>
+      </article>
+      <article class="main">
+        <div class="dish-line"><h3>President</h3><span class="dots" aria-hidden="true"></span><span class="price">2025 – 2026</span></div>
+        <p class="where">Beijing Public-International School Volleyball League</p>
+        <p class="desc">Grew the league to 12 high schools and 200+ players, led a 20+ member team through weekly training and matches, and secured $3,000+ in sponsorships for competitions, facilities and awards.</p>
+      </article>
+      <article class="main">
+        <div class="dish-line"><h3>Founder &amp; President</h3><span class="dots" aria-hidden="true"></span><span class="price">2023 – 2025</span></div>
+        <p class="where">Spark Gavel Club</p>
+        <p class="desc">Founded the first Toastmasters International high school club in China. Ran monthly workshops and the annual YouthTalk showcase, and represented the club in global youth public speaking competitions.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="course" id="favorites">
+    <div class="course-head"><span class="zh" aria-hidden="true">我的最爱</span><h2>Favorites</h2><span class="note">what I'd order every time</span></div>
+    <div class="fav-grid">
+      <div class="fav-card home">
+        <h3><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path d="M4 18 H36 C36 28, 29 34, 20 34 C11 34, 4 28, 4 18 Z" fill="#C2311D" stroke="#2B1B12" stroke-width="2"/><path d="M14 13 C 13 10, 16 8, 15 5 M20 13 C 19 10, 22 8, 21 5 M26 13 C 25 10, 28 8, 27 5" fill="none" stroke="#2B1B12" stroke-width="1.8" stroke-linecap="round"/></svg>From home</h3>
+        <ul class="fav-list">
+          <li><span class="dish"><span class="han">辣椒炒肉</span>Chili pepper pork</span><span class="gloss">Hunan-style pork stir-fried with green chilies</span></li>
+          <li><span class="dish"><span class="han">茭白</span>Water bamboo</span><span class="gloss">Crisp, sweet wild rice stem, quick stir-fried</span></li>
+          <li><span class="dish"><span class="han">干炒牛河</span>Beef chow fun</span><span class="gloss">Cantonese dry-fried rice noodles with beef</span></li>
+        </ul>
+      </div>
+      <div class="fav-card abroad">
+        <h3><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="22" r="14" fill="#FAF8F1" stroke="#2B1B12" stroke-width="2"/><circle cx="20" cy="22" r="7" fill="#F0B236" stroke="#2B1B12" stroke-width="1.5"/><path d="M8 4 L22 18 M14 2 L26 16" stroke="#4E7A39" stroke-width="2.4" stroke-linecap="round"/></svg>From abroad</h3>
+        <ul class="fav-list">
+          <li><span class="dish">Tapas</span><span class="gloss">Spain, many small plates</span></li>
+          <li><span class="dish">Omakase</span><span class="gloss">Japan, chef's choice</span></li>
+          <li><span class="dish">Ramen</span><span class="gloss">Japan, one big bowl</span></li>
+          <li><span class="dish">Greek &amp; Mediterranean</span><span class="gloss">Mezze, grilled everything, lots of lemon</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="ask"><span class="bubble">still hungry</span>Know a spot in the Bay I should try? <a href="#contact">Tell me.</a></p>
+  </section>
+</div>
+
+<footer class="bill" id="contact">
+  <div class="wrap">
+    <div class="left">
+      <p class="zh" aria-hidden="true">买单</p>
+      <h2>Let's talk about <em>minds</em>, <em>machines</em>, or where to eat next.</h2>
+      <div class="links">
+        <a class="pill main" href="mailto:elisadeng@berkeley.edu">elisadeng@berkeley.edu</a>
+        <a class="pill" href="https://www.linkedin.com/in/elisadeng">LinkedIn</a>
+        <a class="pill" href="https://github.com/elisaxdeng">GitHub</a>
+      </div>
+    </div>
+    <div class="receipt" aria-label="Receipt">
+      <div class="rhead">ELISA'S KITCHEN<br>Berkeley, CA</div>
+      <div class="row"><span>1 × cog sci</span><span>✓</span></div>
+      <div class="row"><span>1 × art &amp; design</span><span>✓</span></div>
+      <div class="row"><span>1 × AI curiosity</span><span>✓</span></div>
+      <div class="row"><span>∞ × food recs</span><span>wanted</span></div>
+      <div class="row total"><span>TOTAL</span><span>let's chat</span></div>
+      <p class="thanks">谢谢 · thank you · come again</p>
+    </div>
+  </div>
+  <div class="wrap"><p class="fine">© 2026 Elisa Deng · she/her · Berkeley, CA</p></div>
+</footer>
+</body>
+</html>
